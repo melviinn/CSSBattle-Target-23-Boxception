@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSSbattle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__left">
+                <div class="nav__brand">
+                    <img src="img/brand-logo.svg" alt="logo" width="110">
+                </div>
+                <div class="nav__battle">
+                    <div class="battle__nbr">
+                        <b>/</b>
+                        <p>Battle #4</p>
+                    </div>
+                    <div class="dropdown">
+                        <div class="box" onclick="openDropdown()">
+                            <p>#23. Boxception</p>
+                            <i class="fa-solid fa-caret-down arrow"></i>
+                        </div>
+                        <div id="dropdown-content" class="dropdown-content dropdown-body">
+                            <a href="#">#21. SitePoint Logo</a>
+                            <a href="#">#22. Cloud</a>
+                            <a href="#">#23. Boxception</a>
+                            <a href="#">#24. Switches</a>
+                            <a href="#">#25. Blossom</a>
+                            <a href="#">#26. Smiley</a>
+                            <a href="#">#27. Lock up</a>
+                            <a href="#">#28. Cups & Balls</a>
+                            <p>Tip: Use ⌘+K for quick navigation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav__right">
+                <button class="nav__btn" id="nav__btn">
+                    <a href="#test">Learn CSS</a>
+                </button>
+                <div class="dropdown">
+                    <div class="box" onclick="openDropdown2()">
+                        <i class="fa-sharp fa-lg fa-solid fa-circle-question"></i>
+                        <i class="fa-solid fa-caret-down arrow"></i>
+                    </div>
+                    <div id="dropdown-content2" class="dropdown-content2 dropdown-body">
+                        <p>
+                            The objective of the game is to write HTML/CSS to replicate the given target image in the least code possible.
+                            <br><br>
+                            In the target page, start coding in the editor area on the left. As you start typing, the output area in the middle will start rendering your code. When you're confident that the output matches the target image, hit the Submit button to see your score.
+                            <h3 style="margin-bottom: -10px"><p>Important points to Note:</p></h3>
+                            <ul>
+                                <li><p>It is recommended to play on Chromium based browsers (Chrome/Safari) because that is what is used for scoring at the backend. Other browser may have some differences in how they render a particular code.</p></li>
+                                <li><p>What you write in the editor, renders as it is. We make no change. This means you don't even get the <code>DOCTYPE</code></p></li>
+                                <li><p>Since this is "CSS" battle, you are not allowed to use JavaScript or images in your code. In fact any external asset is not allowed. All code required to generate the target image has to be written in the given editor only.</p></li>
+                            </ul>
+                            <p>Now go and climb the leaderboards!</p>
+                        </p>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="box" onclick="openDropdown3()">
+                        <img src="img/profil.jpeg" alt="pdp" width="25" class="img__pdp">
+                        <p>melviinn</p>
+                        <i class="fa-solid fa-caret-down arrow"></i>
+                    </div>
+                    <div id="dropdown-content3" class="dropdown-content3 dropdown-body">
+                        <div class="filters">
+                            <span>
+                                <input type="radio" name="theme" id="dark" value="dark" checked>
+                                <label for="dark">Dark Theme</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="theme" id="light" value="light">
+                                <label for="light">Light Theme</label>
+                            </span>
+                        </div>
+                        <a href="#" style="color: #fee333">Upgrade to pro</a>
+                        <a href="#">View profile</a>
+                        <a href="#">My battles</a>
+                        <a href="#">My anatytics</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="editor">
+            <div class="editor__header">
+                <div class="header__left">
+                    <p>EDITOR</p>
+                    <p class="mini-box">CTRL + SHIFT + E</p>
+                </div>
+                <div class="header__right">
+                    <p>24 characters</p>
+                </div>
+            </div>
+            <div class="editor__text">
+                <p><b>1</b> &nbsp <b class="insert">Insert</b> your <b class="code">code</b> here...</p>
+            </div>
+            <div class="editor__badge">
+                <div class="box">
+                    <p>Plugins</p>
+                    <img src="img/pro-badge.svg" alt="pro-badge" width="25">
+                </div>
+                <div class="box">
+                    <p>My Solutions</p>
+                </div>
+                <div class="box" id="mouseoverBox" style="background-color: #0060ca;">
+                    <p>Submit (⌘+ENTER)</p>
+                </div>
+                <div id="hint" class="hint button__hint">
+                    Don't be afraid. You can submit multiple times
+                </div>
+            </div>
+        </div>
+        <div class="output">
+            <div class="output__left">
+                <div class="output__header">
+                    <h4 style="color: var(--text)">OUTPUT</h4>
+                    <div class="output__filters">
+                        <input type="checkbox" name="slide" id="slide">
+                        <label for="slide">Slide & Compare</label>
+                        <input type="checkbox" name="diff" id="diff">
+                        <label for="diff">Diff</label>
+                    </div>
+                </div>
+                <div class="output__content">
+                    <img src="img/output-demo.png" alt="output-demo">
+                    <h5>YOUR SCORE</h5>
+                    <div class="score-container">
+                        <div class="last__score">
+                            <p class="last-score">Last Score</p>
+                            <p style="font-weight: 600; font-size: 14px; color: var(--text)">Submit to get score</p>
+                        </div>
+                        <div class="high__score">
+                            <p class="high-score">High Score</p>
+                            <p style="font-weight: 600; font-size: 14px; color: var(--text)">757.19 {98}</p>
+                        </div>
+                        <div class="score__buttons">
+                            <div class="box"><i class="fa-solid fa-chart-simple"></i>Leaderboard</div>
+                            <div class="box"><i class="fa-brands fa-twitter"></i>Challenge</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="output__right">
+                <div class="output__header">
+                    <h4 style="color: var(--text)">TARGET</h4>
+                    <p>400px x 300px</p>
+                </div>
+                <div class="output__content">
+                    <img src="img/output-demo.png" alt="output-demo">
+                    <h5 class="colors-to-use">COLORS TO USE <p class="mini-box2">CTRL + SHIFT + C</p></h5>
+                    <ul class="color-box" style="list-style: none">
+                        <li>#F3AC3C</li>
+                        <li>#1A4341</li>
+                        <li>#998235</li>
+                    </ul>
+                    <h5 class="target-sponsor">TARGET SPONSOR</h5>
+                    <div class="sponsor-box" style="padding: 15px; background: var(--box-btn-bg); border-radius: 3px">
+                        <img src="img/sponsor.jpeg" alt="sponsor">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2023 CSSBattle</p>
+        <div class="footer__links">
+            <a href="#">Upgrade to</a>
+            <img src="img/pro-badge.svg" alt="pro-badge" width="25">
+            <span>·</span>
+            <a href="#">Tips & Tricks</a>
+            <span>·</span>
+            <a href="#">Learn CSS</a>
+            <span>·</span>
+            <a href="#">Blog</a>
+            <span>·</span>
+            <a href="#">FAQs</a>
+            <span>·</span>
+            <a href="#">Community</a>
+            <span>·</span>
+            <a href="#">About</a>
+            <span>·</span>
+            <a href="#">Sponsor</a>
+            <span>·</span>
+            <a href="#">Privacy & Terms</a>
+            <span>·</span>
+            <a href="#"><i id="iconDiscord" class="fa-brands fa-discord"></i></a>
+            <div id="hintDiscord" class="hint2 button__hint">
+                Join on Discord
+            </div>
+            <span>·</span>
+            <a href="#"><i id="iconTwitter" class="fa-brands fa-twitter"></i></a>
+            <div id="hintTwitter" class="hint3 button__hint">
+                Join on Twitter
+            </div>
+            <span>·</span>
+            <a href="#"><i id="iconMail" class="fa-solid fa-envelope"></i></a>
+            <div id="hintMail" class="hint4 button__hint">
+                Contact us
+            </div>
+        </div>
+    </footer>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+    crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
